@@ -1,24 +1,7 @@
 # rails6-circleCI
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### GitHubへのpush時、Rspecによる自動テストとrubocopによるコードの静的解析を行う
 
-Things you may want to cover:
+ruby: 2.7.1
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rails: 6.0.3.1
