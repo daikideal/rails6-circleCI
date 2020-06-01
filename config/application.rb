@@ -35,10 +35,12 @@ module Rails6Circleci
       g.helper false
       g.test_flamework :rspec,
         controller_specs: false,
+        fixtures: true,
         helper_specs: false,
         request_specs: false,
         routing_specs: false,
         view_specs: false
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
 
     # Don't generate system test files.
