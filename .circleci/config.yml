@@ -4,12 +4,30 @@ orbs:
 
 jobs:
   build:
+    # docker-executor を使用
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
-    executor: ruby/default
+      - image: circleci/ruby:2.7.1-node-browsers
+        environment: 
+          RAILS_ENV: test
+      - image: circleci/mysql:8.0
+
+    # steps を実行する際のディレクトリを指定
+    working_directory: ~/rails6-circleci
+
     steps:
+      # プロジェクトのソースコードをジョブの working_directory にチェックアウト
       - checkout
       - run:
           name: Which bundler?
           command: bundle -v
       - ruby/bundle-install
+
+      # rspec による自動テスト
+      - run:
+          name: Rspec
+          command: bundle exec rspec
+      
+      # rubocop によるコード整形
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
