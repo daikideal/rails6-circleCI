@@ -17,10 +17,11 @@ jobs:
     steps:
       # プロジェクトのソースコードをジョブの working_directory にチェックアウト
       - checkout
+
+      # gem をインストール
       - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+          name: Install dependencies
+          command: bundle install
 
       # rspec による自動テスト
       - run:
