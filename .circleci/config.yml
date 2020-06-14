@@ -28,7 +28,7 @@ jobs:
           name: Rspec
           command: bundle exec rspec
       
-      # rubocop によるコード整形
+      # rubocop によるコード解析
       - run:
           name: Rubocop
           command: bundle exec rubocop
