@@ -1,0 +1,34 @@
+version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2 
+
+jobs:
+  build:
+    # docker-executor を使用
+    docker:
+      - image: circleci/ruby:2.7.1-node-browsers
+        environment: 
+          RAILS_ENV: test
+      - image: circleci/mysql:8.0
+
+    # steps を実行する際のディレクトリを指定
+    working_directory: ~/rails6-circleci
+
+    steps:
+      # プロジェクトのソースコードをジョブの working_directory にチェックアウト
+      - checkout
+
+      # gem をインストール
+      - run:
+          name: Install dependencies
+          command: bundle install
+
+      # rspec による自動テスト
+      - run:
+          name: Rspec
+          command: bundle exec rspec
+      
+      # rubocop によるコード解析
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
