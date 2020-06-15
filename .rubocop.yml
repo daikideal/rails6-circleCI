@@ -1,0 +1,3 @@
+# "Missing top-level module documentation comment." を無効化
+Style/Documentation:
+  Enabled: false
