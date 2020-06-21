@@ -53,7 +53,7 @@ Rails.application.configure do
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
 
-  # Ensure devise default url
+  # Ensure action_mailer url
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Use an evented file watcher to asynchronously detect changes in source code,
