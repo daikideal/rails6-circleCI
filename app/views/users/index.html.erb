@@ -1,0 +1,9 @@
+<table>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.name %></td>
+      <td><%= user.bio %></td>
+    </tr>
+  <% end %>
+</table>
