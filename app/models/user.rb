@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   VALID_NAME_REGEX = /\A[\w-]+\z/
   validates :name, presence: true, uniqueness: true, format: { with: VALID_NAME_REGEX }
+
+  validates :bio, length: { maximum: 400 }
 end
